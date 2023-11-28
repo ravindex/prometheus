@@ -1,0 +1,20 @@
+global:
+  scrape_interval: 10s
+  scrape_timeout: 10s
+
+rule_files:
+- /etc/prometheus/rules.yml
+
+scrape_configs:
+  - job_name: prometheus
+    static_configs:
+    - targets:
+      - prometheus:9090
+  - job_name: master-db-exporter
+    static_configs:
+    - targets:
+      - 10.1.0.3:9187
+  - job_name: slave-db-exporter
+    static_configs:
+    - targets:
+      - 10.1.0.3:9187
