@@ -10,11 +10,19 @@ scrape_configs:
     static_configs:
     - targets:
       - prometheus:9090
-  - job_name: master-db-exporter
+  - job_name: dev-slave-db-exporter
     static_configs:
     - targets:
-      - 10.1.0.3:9187
-  - job_name: slave-db-exporter
+      - 45.82.139.255:9101
+  - job_name: dev-master-db-exporter
     static_configs:
     - targets:
-      - 10.1.0.3:9187
+      - 45.82.139.255:9102
+  - job_name: core-slave-db-exporter
+    static_configs:
+    - targets:
+      - 37.32.10.32:9101
+  - job_name: core-master-db-exporter
+    static_configs:
+    - targets:
+      - 37.32.10.32:9102
