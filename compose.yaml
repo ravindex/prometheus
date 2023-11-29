@@ -14,6 +14,8 @@ services:
     volumes:
       - ./configs:/etc/prometheus
       - ./data/prometheus:/prometheus
+    networks:
+      - default
   
 volumes:
   prom_data:
