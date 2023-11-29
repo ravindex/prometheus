@@ -3,6 +3,7 @@ version: '3.9'
 services:
   prometheus:
     image: prom/prometheus:v2.48.0
+    user: root
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
@@ -10,7 +11,6 @@ services:
       - '--web.console.templates=/usr/share/prometheus/consoles'
     ports:
       - 9090:9090
-    
     restart: unless-stopped
     volumes:
       - ./configs:/etc/prometheus
